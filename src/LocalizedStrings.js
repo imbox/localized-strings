@@ -311,7 +311,7 @@ export default class LocalizedStrings {
     const index = this._languageListeners.findIndex((a) => a === listener);
 
     if (index === -1) {
-      console.log("Language listener does not exist", middleware);
+      console.log("Language listener does not exist");
 
       return;
     }
