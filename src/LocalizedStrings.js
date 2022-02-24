@@ -308,16 +308,16 @@ export default class LocalizedStrings {
   }
 
   removeLanguageChangeListener(listener) {
-    const index = this._languageListeners.findIndex((a) => a === listener);
+    const updatedListeners = this._languageListeners.filter(
+      (_listener) => _listener !== listener
+    );
 
-    if (index === -1) {
+    if (updatedListeners.length === this._languageListeners.length) {
       console.log("Language listener does not exist");
 
       return;
     }
 
-    this._languageListeners = this._languageListeners.filter(
-      (_, _index) => _index !== index
-    );
+    this._languageListeners = updatedListeners;
   }
 }
