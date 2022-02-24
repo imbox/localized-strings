@@ -58,7 +58,17 @@ declare module "localized-strings" {
     /**
      * Return current locale object
      */
-    getContent(): any
+    getContent(): any;
+
+    /**
+     * Listen to language changes
+     */
+    addLanguageChangeListener: (callback: (language: string) => void) => void;
+
+    /**
+     * Remove language listener
+     */
+    removeLanguageChangeListener: (callback: () => void) => void;
   }
 
   export type LocalizedStrings<T> = LocalizedStringsMethods & T;
